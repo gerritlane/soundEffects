@@ -25,26 +25,41 @@ body {
 
 .instrument-wrapper {
 	display: flex;
+	flex-wrap: wrap;
 	flex-direction: row;
 	align-content: space-evenly;
 	justify-content: center;
-	width: .5vw;
+	width: 90vw;
 	margin: 40px;
 }
 
 .instrument {
-	background-color: var(--color-light);
+	background-color: white;
 	border-radius: 12%;
-	/* height: 200px;
-	width: 200px; */
+	/* height: fit-content;
+	width: fit-content; */
 	flex-grow: 1;
 	flex-shrink: 0;
+	width: fit-content;
+	aspect-ratio: 1 / 1;
 	display: flex;
 	flex-direction: column;
-	align-content: space-around;
+	align-content: flex-end;
 	justify-content: center;
 	margin: min(2rem,3vw);
 	padding: min(1rem,1.5vw);
+}
+
+.instrument__img {
+	height: 10vw;
+	width: 10vw;
+	margin: auto;
+}
+
+.instrument__subtitle {
+	text-align: center;
+	font-family: 'Roboto', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	margin-top: min(1rem,1.5vw);
 }
 
 .footer {
