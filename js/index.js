@@ -1,10 +1,13 @@
-document.querySelectorAll('.instrument__img')[0].addEventListener('click', function(){
-	playAudio('bell_01');
-});
+const audioFileList = [
+	'bell_01',
+	'door_close_01',
+];
 
-document.querySelectorAll('.instrument__img')[1].addEventListener('click', function(){
-	playAudio('door_close_01');
-});
+for(let i = 0; i < audioFileList.length; i++) {
+	document.querySelectorAll('.instrument__img')[i].addEventListener('click', function(){
+		playAudio(`${audioFileList[i]}`);
+	});
+}
 
 function playAudio (audioFile) {
 	let audio = new Audio(`../audio/${audioFile}.ogg`);
