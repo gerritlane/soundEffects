@@ -1,4 +1,5 @@
 const audioFileList = [
+	// Must match the order of the instruments displayed on the screen
 	'bell_01',
 	'door_close_01',
 	'glass_04',
@@ -25,12 +26,22 @@ for(let i = 0; i < audioFileList.length; i++) {
 // Add audio on keydown to body mapped to the listed key
 document.querySelector('body').addEventListener('keydown', function(e) {
 		if (e.key in audioKeyMap) {
-			playAudio(`${audioKeyMap[e.key]}`);
+			playAudio(`${audioKeyMap[e.key]}`, e.key);
 		}
 });
 
-function playAudio (audioFile) {
+function playAudio (audioFile, instrumentKey) {
 	// Harcoded link due to github pages filesystem structure
 	let audio = new Audio(`https://github.com/gerritlane/soundEffects/blob/main/audio/${audioFile}.ogg?raw=true`);
+	let instrumentNum = audioFileList.findIndex((element) => element === audioFile);
+	let instrument = document.getElementsByClassName('instrument')[instrumentNum];
+	instrument.classList.toggle('wiggle');
 	audio.play();
+
+	// Turn off wiggle after animation ends
+	animationEndCallback = (e) => {
+		instrument.removeEventListener('animationend', animationEndCallback);
+		instrument.classList.remove('wiggle');
+	};
+	instrument.addEventListener('animationend', animationEndCallback);
 }
