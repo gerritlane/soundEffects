@@ -30,6 +30,7 @@ document.querySelector('body').addEventListener('keydown', function(e) {
 });
 
 function playAudio (audioFile) {
-	let audio = new Audio(`../audio/${audioFile}.ogg`);
+	// Harcoded link due to github pages filesystem structure
+	let audio = new Audio(`https://github.com/gerritlane/soundEffects/blob/main/audio/${audioFile}.ogg?raw=true`);
 	audio.play();
 }
