@@ -33,11 +33,13 @@ document.querySelector('body').addEventListener('keydown', function(e) {
 function playAudio (audioFile, instrumentKey) {
 	// Harcoded link due to github pages filesystem structure
 	let audio = new Audio(`https://github.com/gerritlane/soundEffects/blob/main/audio/${audioFile}.ogg?raw=true`);
+	audio.play();
+
+	// Add wiggle effect to selected instrument
 	let instrumentNum = audioFileList.findIndex((element) => element === audioFile);
 	let instrument = document.getElementsByClassName('instrument')[instrumentNum];
 	instrument.classList.toggle('wiggle');
-	audio.play();
-
+	
 	// Turn off wiggle after animation ends
 	animationEndCallback = (e) => {
 		instrument.removeEventListener('animationend', animationEndCallback);
