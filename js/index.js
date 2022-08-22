@@ -32,7 +32,7 @@ document.querySelector('body').addEventListener('keydown', function(e) {
 
 function playAudio (audioFile, instrumentKey) {
 	// Harcoded link due to github pages filesystem structure
-	let audio = new Audio(`https://github.com/gerritlane/soundEffects/blob/main/audio/${audioFile}.ogg?raw=true`);
+	let audio = new Audio(`https://github.com/gerritlane/soundEffects/blob/main/audio/${audioFile}.mp3?raw=true`);
 	audio.play();
 
 	// Add wiggle effect to selected instrument

@@ -68,8 +68,8 @@ body {
 }
 
 .instrument__img {
-	height: 10vw;
-	width: 10vw;
+	height: min(15vw, 130px);
+	width: min(15vw, 130px);
 	margin: auto;
 }
 
